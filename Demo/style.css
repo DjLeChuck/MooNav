@@ -1,0 +1,26 @@
+ul {
+    list-style-type: none;
+    padding-bottom: 24px; /* à modifier suivant la taille de la police ET de la hauteur de l'onglet dans #onglets li */
+    border-bottom: 1px solid #9EA0A1;
+    margin: 5px 5px 5px 0;
+}
+
+    li {
+        float: left;
+        height: 21px; /* à modifier suivant la taille de la police pour centrer le texte dans l'onglet */
+        background-color: #F4F9FD;
+        margin: 2px 2px 0 2px !important; /* Pour les navigateurs autre que IE */
+        margin: 1px 2px 0 2px; /* Pour IE  */
+        padding: 0 10px 0 10px;
+        border: 1px solid #9EA0A1;
+        display: block;
+        cursor: pointer;
+    }
+
+        .actif {
+            color: red;
+        }
+
+        .actif_bis {
+            color: green;
+        }
