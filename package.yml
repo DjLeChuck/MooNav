@@ -1,8 +1,6 @@
 name: MooNav
 author: DjLechuck
 category: Interface
-tags:
-    - tab
-    - animation
+tags: [tab, animation]
 docs: http://www.djlechuck.fr/MooNav/README.md
 demo: http://www.djlechuck.fr/MooNav/Demo/index.html
