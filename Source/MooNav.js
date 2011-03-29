@@ -11,7 +11,7 @@ requires:
     - core/1.3.1: '*'
     - more/Fx.Slide
 
-provide:
+provides:
     - MooNav
 ...
 */
