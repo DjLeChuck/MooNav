@@ -6,7 +6,7 @@ A tab system for MooTools with transition or not (slide, fade, none).
 How to use
 ----------
 
-MooTab can be easily use, with just one line! But we also have possibilitie to customize some points.
+MooTab can be easily use, with just one line! But we also have possibility to customize some points.
 
 There are three ways to do the transition:
     - none (default)
