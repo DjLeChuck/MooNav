@@ -38,6 +38,6 @@ There isn't any other methods to call, all is done!
 Screenshots
 -----------
 
-![Screenshot 1](http://http://www.djlechuck.fr/MooNav/Screens/screen1.png)
-![Screenshot 2](http://http://www.djlechuck.fr/MooNav/Screens/screen2.png)
-![Screenshot 3](http://http://www.djlechuck.fr/MooNav/Screens/screen3.png)
+![Screenshot 1](http://www.djlechuck.fr/MooNav/Screens/screen1.png)
+![Screenshot 2](http://www.djlechuck.fr/MooNav/Screens/screen2.png)
+![Screenshot 3](http://www.djlechuck.fr/MooNav/Screens/screen3.png)
