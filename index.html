@@ -1,77 +1,169 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
-  <meta charset='utf-8'>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-  <title>DjLeChuck/MooNav @ GitHub</title>
+	<title>MooTab example</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="text/javascript" src="./mootools-core.js"></script>
+    <script type="text/javascript" src="./mootools-more.js"></script>
+	<script type="text/javascript" src="./MooNav.js"></script>
 
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #ffffff;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #000000; }
-    h3 { text-align: center; color: #000000; }
-    a { color: #000000; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+    <script type="text/javascript">
+    window.addEvent('domready', function() {
+        // Basic, without transition effect and the default class
+        new MooNav();
+
+        // Custom with slide effect and redefinition of tabs, parts and active class
+        new MooNav({
+            tabs: '.onglet_slide',
+            parts: '.partie_slide',
+            transition: 'slide',
+            classActive: 'actif_bis'
+        });
+
+        // Custom with fade effect, redefinition of tabs and parts class and custom first active tab
+        new MooNav({
+            tabs: '.onglet_fade',
+            parts: '.partie_fade',
+            transition: 'fade',
+            firstActiveTab: 2
+        });
+    });
+    </script>
 </head>
-
 <body>
-  <a href="http://github.com/DjLeChuck/MooNav"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-  <div id="container">
+    <h1>No transition</h1>
+    <ul>
+        <li class="onglet">Part one</li>
+        <li class="onglet">Part two</li>
+        <li class="onglet">Part three</li>
+    </ul>
 
-    <div class="download">
-      <a href="http://github.com/DjLeChuck/MooNav/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/DjLeChuck/MooNav/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    <div class="partie">
+        <h2>
+            Part One
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+        </p>
+        <p>
+            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+        </p>
     </div>
 
-    <h1><a href="http://github.com/DjLeChuck/MooNav">MooNav</a>
-      <span class="small">by <a href="http://github.com/DjLeChuck">DjLeChuck</a></span></h1>
-
-    <div class="description">
-      A tab system for MooTools with transition or not (slide, fade, none).
+    <div class="partie">
+        <h2>
+            Part Two
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+        </p>
+        <p>
+            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+        </p>
     </div>
 
-    <h2>Authors</h2>
-<p>DE BONA Vivien (djlechuck@gmail.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>DE BONA Vivien (djlechuck@gmail.com)<br/>      </p>
-
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/DjLeChuck/MooNav/zipball/master">zip</a> or
-      <a href="http://github.com/DjLeChuck/MooNav/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/DjLeChuck/MooNav</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/DjLeChuck/MooNav">DjLeChuck/MooNav</a>
+    <div class="partie">
+        <h2>
+            Part Three
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+        </p>
+        <p>
+            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+        </p>
     </div>
 
-  </div>
 
-  
+    <h1>Slide transition</h1>
+    <ul>
+        <li class="onglet_slide">Part one Slide</li>
+        <li class="onglet_slide">Part two Slide</li>
+        <li class="onglet_slide">Part three Slide</li>
+    </ul>
+
+    <div class="partie_slide">
+        <h2>
+            Part One
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+        </p>
+        <p>
+            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+        </p>
+    </div>
+
+    <div class="partie_slide">
+        <h2>
+            Part Two
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+        </p>
+        <p>
+            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+        </p>
+    </div>
+
+    <div class="partie_slide">
+        <h2>
+            Part Three
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+        </p>
+        <p>
+            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+        </p>
+    </div>
+
+
+    <h1>Fade transition</h1>
+    <ul>
+        <li class="onglet_fade">Part one Fade</li>
+        <li class="onglet_fade">Part two Fade</li>
+        <li class="onglet_fade">Part three Fade</li>
+    </ul>
+
+    <div class="partie_fade">
+        <h2>
+            Part One
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+        </p>
+        <p>
+            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+        </p>
+    </div>
+
+    <div class="partie_fade">
+        <h2>
+            Part Two
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+        </p>
+        <p>
+            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+        </p>
+    </div>
+
+    <div class="partie_fade">
+        <h2>
+            Part Three
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+        </p>
+        <p>
+            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+        </p>
+    </div>
 </body>
 </html>
