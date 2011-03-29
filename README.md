@@ -38,8 +38,6 @@ There isn't any other methods to call, all is done!
 Screenshots
 -----------
 
-This section is optional, but encouraged if the plugin affords it. Just a list of images, one per line. We do the resizing, so use actual size screenshots.
-
 ![Screenshot 1](http://http://www.djlechuck.fr/MooNav/Screens/screen1.png)
 ![Screenshot 2](http://http://www.djlechuck.fr/MooNav/Screens/screen2.png)
 ![Screenshot 3](http://http://www.djlechuck.fr/MooNav/Screens/screen3.png)
