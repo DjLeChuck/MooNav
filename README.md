@@ -35,6 +35,11 @@ There are some examples:
 
 There isn't any other methods to call, all is done!
 
+You can add tabs with the addTab(li_content, div_content).
+For example :
+myNav = new MooNav();
+myNav.addTab("Tab name", "Tab content");
+
 Screenshots
 -----------
 
