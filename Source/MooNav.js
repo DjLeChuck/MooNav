@@ -19,26 +19,25 @@ provides:
 var MooNav = new Class({
 	Implements: [Options],
 	options: {
-		tabs:           '.onglet',
-		parts:          '.partie',
-		classActive:	'actif',
-		firstActiveTab: 0,
+		tabsId:			'tabs',
+		partsClass:		'.part',
+		activeClass:	'active',
+		current:		0,
 		transition:		'none'
 	},
-
+	
 	initialize: function(options) {
 		var self = this;
 
 		// Redéfinition des options si nécessaire
 		self.setOptions(options);
-
-		// Récupération des onglets et des parties correspondantes
-		self.tabs	=  $$(self.options.tabs);
-		self.parts	=  $$(self.options.parts);
+		
+		// Fonction qui charge les tableaux d'onglets et parties
+		self._prepareEngine();
 
 		// Initialisation de l'onglet et de la partie courante
-		self.current	= self.options.firstActiveTab;
-		self.index		= self.options.firstActiveTab;
+		self.current	= self.options.current;
+		self.index		= self.options.current;
 
 		// Fonction qui va cacher les différentes parties
 		self._hideParts();
@@ -47,7 +46,7 @@ var MooNav = new Class({
 		self._addClickEvents();
 
 		// Fonction qui va afficher l'onglet actif courant
-        self._firstActiveTab();
+        self._activeTab();
 	},
 
     _hideParts: function() {
@@ -75,30 +74,30 @@ var MooNav = new Class({
         }
     },
 
-    _firstActiveTab: function() {
+    _activeTab: function() {
         var self = this;
-
+		
         // Affichage de l'onglet actif
-        self.tabs[self.options.firstActiveTab].addClass(self.options.classActive);
+        self.tabs[self.current].addClass(self.options.activeClass);
 
 		switch(self.options.transition)
 		{
             case 'slide':
-                new Fx.Slide(self.parts[self.options.firstActiveTab]).show();
+                new Fx.Slide(self.parts[self.current]).show();
             break;
             case 'fade':
-                self.parts[self.options.firstActiveTab].setStyle('display', 'block');
-                new Fx.Tween(self.parts[self.options.firstActiveTab]).set('opacity', 1);
+                self.parts[self.current].setStyle('display', 'block');
+                new Fx.Tween(self.parts[self.current]).set('opacity', 1);
             break;
             case 'none':
-                self.parts[self.options.firstActiveTab].setStyle('display', 'block');
+                self.parts[self.current].setStyle('display', 'block');
             break;
         }
     },
 
 	_addClickEvents: function() {
 		var self = this;
-
+		
 		// On ajoute un événement "click" aux onglets selon le type de transition
 		self.tabs.each(function(item, index){
 			item.addEvent('click', function(){
@@ -112,15 +111,15 @@ var MooNav = new Class({
 					self._doTransition();
 
 					// On applique la class actif au bon onglet
-					self.tabs.removeClass(self.options.classActive);
-					self.tabs[self.index].addClass(self.options.classActive);
+					self.tabs.removeClass(self.options.activeClass);
+					self.tabs[self.index].addClass(self.options.activeClass);
 				}
 
 				self.current = self.index;
 			});
 		});
 	},
-
+	
 	_doTransition: function() {
 		var self = this;
 
@@ -145,5 +144,39 @@ var MooNav = new Class({
                 self.parts[self.index].setStyle('display', 'block');
             break;
         }
+	},
+	
+	_prepareEngine: function() {
+		var self = this;
+		
+		// Récupération des onglets et des parties correspondantes
+		self.tabs	=  $(self.options.tabsId).getElements('li');
+		self.parts	=  $$(self.options.partsClass);
+	},
+	
+	addTab: function(li_content, div_content) {
+		var self = this;
+
+		var new_li = new Element('li', {
+			html: li_content
+		});
+		new_li.inject($(self.options.tabsId), 'bottom');
+
+		var new_part = new Element('div' + self.options.partsClass, {
+			html: div_content
+		});
+		new_part.inject(self.parts.getLast(), 'after');
+		
+		// Fonction qui charge les tableaux d'onglets et parties
+		self._prepareEngine();
+
+		// Fonction qui va cacher les différentes parties
+		self._hideParts();
+
+		// Fonction qui va ajouter les événements "click" aux onglets
+		self._addClickEvents();
+
+		// Fonction qui va afficher l'onglet actif courant
+        self._activeTab();
 	}
 });

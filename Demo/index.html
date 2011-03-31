@@ -11,38 +11,49 @@
 	<script type="text/javascript" src="../Source/MooNav.js"></script>
 
     <script type="text/javascript">
-    window.addEvent('domready', function() {
+    var myNav;
+
+	window.addEvent('domready', function() {
         // Basic, without transition effect and the default class
-        new MooNav();
+        myNav = new MooNav();
 
         // Custom with slide effect and redefinition of tabs, parts and active class
         new MooNav({
-            tabs: '.onglet_slide',
-            parts: '.partie_slide',
-            transition: 'slide',
-            classActive: 'actif_bis'
+            tabsId:			'slide_tabs',
+            partsClass:		'.slide_part',
+            transition:		'slide',
+            activeClass:	'active_bis'
         });
 
         // Custom with fade effect, redefinition of tabs and parts class and custom first active tab
         new MooNav({
-            tabs: '.onglet_fade',
-            parts: '.partie_fade',
-            transition: 'fade',
-            firstActiveTab: 2
+            tabsId:		'fade_tabs',
+            partsClass:	'.fade_part',
+            transition:	'fade',
+            current:	2
         });
     });
+
+	var x = 0;
+	function addTab()
+	{
+		myNav.addTab('New tab ' + x, 'Content ' + x);
+		x++;
+	}
     </script>
 </head>
 <body>
-
+	<p>
+		<input type="button" value="Add tab" onclick="addTab();" />
+	</p>
     <h1>No transition</h1>
-    <ul>
-        <li class="onglet">Part one</li>
-        <li class="onglet">Part two</li>
-        <li class="onglet">Part three</li>
+    <ul id="tabs">
+        <li>Part one</li>
+        <li>Part two</li>
+        <li>Part three</li>
     </ul>
 
-    <div class="partie">
+    <div class="part">
         <h2>
             Part One
         </h2>
@@ -54,7 +65,7 @@
         </p>
     </div>
 
-    <div class="partie">
+    <div class="part">
         <h2>
             Part Two
         </h2>
@@ -66,7 +77,7 @@
         </p>
     </div>
 
-    <div class="partie">
+    <div class="part">
         <h2>
             Part Three
         </h2>
@@ -80,13 +91,13 @@
 
 
     <h1>Slide transition</h1>
-    <ul>
-        <li class="onglet_slide">Part one Slide</li>
-        <li class="onglet_slide">Part two Slide</li>
-        <li class="onglet_slide">Part three Slide</li>
+    <ul id="slide_tabs">
+        <li>Part one Slide</li>
+        <li>Part two Slide</li>
+        <li>Part three Slide</li>
     </ul>
 
-    <div class="partie_slide">
+    <div class="slide_part">
         <h2>
             Part One
         </h2>
@@ -98,7 +109,7 @@
         </p>
     </div>
 
-    <div class="partie_slide">
+    <div class="slide_part">
         <h2>
             Part Two
         </h2>
@@ -110,7 +121,7 @@
         </p>
     </div>
 
-    <div class="partie_slide">
+    <div class="slide_part">
         <h2>
             Part Three
         </h2>
@@ -124,13 +135,13 @@
 
 
     <h1>Fade transition</h1>
-    <ul>
-        <li class="onglet_fade">Part one Fade</li>
-        <li class="onglet_fade">Part two Fade</li>
-        <li class="onglet_fade">Part three Fade</li>
+    <ul id="fade_tabs">
+        <li>Part one Fade</li>
+        <li>Part two Fade</li>
+        <li>Part three Fade</li>
     </ul>
 
-    <div class="partie_fade">
+    <div class="fade_part">
         <h2>
             Part One
         </h2>
@@ -142,7 +153,7 @@
         </p>
     </div>
 
-    <div class="partie_fade">
+    <div class="fade_part">
         <h2>
             Part Two
         </h2>
@@ -154,7 +165,7 @@
         </p>
     </div>
 
-    <div class="partie_fade">
+    <div class="fade_part">
         <h2>
             Part Three
         </h2>
