@@ -23,7 +23,8 @@ var MooNav = new Class({
 		partsClass:		'.part',
 		activeClass:	'active',
 		current:		0,
-		transition:		'none'
+		transition:		'none',
+		speed:			'normal'
 	},
 	
 	initialize: function(options) {
@@ -118,16 +119,44 @@ var MooNav = new Class({
 		switch(self.options.transition)
 		{
 			case 'slide':
-				new Fx.Slide(self.parts[self.current]).slideOut().chain(function(){
+				new Fx.Slide(self.parts[self.current], {
+					duration: self.options.speed
+				}).slideOut().chain(function(){
+					self.parts[self.index].set('slide', {
+						duration: self.options.speed
+					});
+					
 					self.parts[self.index].slide('hide').slide('in');
 				});
 			break;
 			case 'fade':
-				new Fx.Tween(self.parts[self.current]).start('opacity', 0).chain(function(){
-					this.start('display', 'none')
-				}).chain(function() {
+				var el = self.parts[self.current];
+				
+				var myFx = new Fx.Tween(el, {
+					duration: self.options.speed,
+					link: 'chain',
+					property: 'opacity',
+					onComplete: function() {
+						el.setStyle('display', 'none');
+					}
+				});
+				
+				myFx.start(0).start(function() {
 					self.parts[self.index].setStyle('display', 'block');
-					self.parts[self.index].fade('in');
+					//self.parts[self.index].fade('in');
+
+					self.parts[self.index].set('tween', {
+						duration: self.options.speed
+					});
+					self.parts[self.index].tween('opacity', 0, 100);
+					/*var fadeFx = new Fx.Tween(self.parts[self.index], {
+						duration: self.options.speed,
+						link: 'chain',
+						property: 'opacity'
+					});
+					
+					fadeFx.set('opacity', 0);
+					fadeFx.start(0, 100);*/
 				});
 			break;
 			case 'none':
