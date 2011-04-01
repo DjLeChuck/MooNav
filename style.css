@@ -17,10 +17,10 @@ ul {
         cursor: pointer;
     }
 
-        .actif {
+        .active {
             color: red;
         }
 
-        .actif_bis {
+        .active_bis {
             color: green;
         }
