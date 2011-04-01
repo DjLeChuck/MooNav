@@ -5,14 +5,14 @@ description: A tab system for MooTools.
 license: MIT-style
 
 authors:
-    - DE BONA Vivien (DjLeChuck)
+	- DE BONA Vivien (DjLeChuck)
 
 requires:
-    - core/1.3.1: '*'
-    - more/Fx.Slide
+	- core/1.3.1: '*'
+	- more/Fx.Slide
 
 provides:
-    - MooNav
+	- MooNav
 ...
 */
 
@@ -32,78 +32,69 @@ var MooNav = new Class({
 		// Redéfinition des options si nécessaire
 		self.setOptions(options);
 		
-		// Fonction qui charge les tableaux d'onglets et parties
-		self._prepareEngine();
-
 		// Initialisation de l'onglet et de la partie courante
 		self.current	= self.options.current;
 		self.index		= self.options.current;
-
-		// Fonction qui va cacher les différentes parties
-		self._hideParts();
-
-		// Fonction qui va ajouter les événements "click" aux onglets
-		self._addClickEvents();
-
-		// Fonction qui va afficher l'onglet actif courant
-        self._activeTab();
+		
+		// Fonction qui prépare le système d'onglets
+		self._prepareEngine();
 	},
 
-    _hideParts: function() {
-        var self = this;
+	_hideParts: function() {
+		var self = this;
 
-        // On cache les différentes parties selon le type de transition
-        switch(self.options.transition)
-        {
-            case 'slide':
-                self.parts.each(function(el){
-                    new Fx.Slide(el).hide();
-                });
-            break;
-            case 'fade':
-                self.parts.each(function(el){
-                    new Fx.Tween(el).set('opacity', 0);
-                    el.setStyle('display', 'none');
-                });
-            break;
-            case 'none':
-                self.parts.each(function(el){
-                    el.setStyle('display', 'none');
-                });
-            break;
-        }
-    },
+		// On cache les différentes parties selon le type de transition
+		switch(self.options.transition)
+		{
+			case 'slide':
+				self.parts.each(function(el){
+					new Fx.Slide(el).hide();
+				});
+			break;
+			case 'fade':
+				self.parts.each(function(el){
+					new Fx.Tween(el).set('opacity', 0);
+					el.setStyle('display', 'none');
+				});
+			break;
+			case 'none':
+				self.parts.each(function(el){
+					el.setStyle('display', 'none');
+				});
+			break;
+		}
+	},
 
-    _activeTab: function() {
-        var self = this;
+	_activeTab: function() {
+		var self = this;
 		
-        // Affichage de l'onglet actif
-        self.tabs[self.current].addClass(self.options.activeClass);
+		// Affichage de l'onglet actif
+		self.tabs[self.current].addClass(self.options.activeClass);
 
 		switch(self.options.transition)
 		{
-            case 'slide':
-                new Fx.Slide(self.parts[self.current]).show();
-            break;
-            case 'fade':
-                self.parts[self.current].setStyle('display', 'block');
-                new Fx.Tween(self.parts[self.current]).set('opacity', 1);
-            break;
-            case 'none':
-                self.parts[self.current].setStyle('display', 'block');
-            break;
-        }
-    },
+			case 'slide':
+				new Fx.Slide(self.parts[self.current]).show();
+			break;
+			case 'fade':
+				self.parts[self.current].setStyle('display', 'block');
+				new Fx.Tween(self.parts[self.current]).set('opacity', 1);
+			break;
+			case 'none':
+				self.parts[self.current].setStyle('display', 'block');
+			break;
+		}
+	},
 
 	_addClickEvents: function() {
 		var self = this;
 		
 		// On ajoute un événement "click" aux onglets selon le type de transition
-		self.tabs.each(function(item, index){
+		self.tabs.each(function(item){
 			item.addEvent('click', function(){
 				// Indice de l'onglet cliqué
-				self.index = index;
-
+				self.index = self.tabs.indexOf(item);
+				
 				// Si la partie correspondante existe et que ce n'est pas la même...
 				if (self.parts[self.index] != null && self.index != self.current)
 				{
@@ -122,28 +113,28 @@ var MooNav = new Class({
 	
 	_doTransition: function() {
 		var self = this;
-
-        // On affiche la bonne partie selon le type de transition
+		
+		// On affiche la bonne partie selon le type de transition
 		switch(self.options.transition)
 		{
-            case 'slide':
-                new Fx.Slide(self.parts[self.current]).slideOut().chain(function(){
-                    self.parts[self.index].slide('hide').slide('in');
-                });
-            break;
-            case 'fade':
-                new Fx.Tween(self.parts[self.current]).start('opacity', 0).chain(function(){
-                    this.start('display', 'none')
-                }).chain(function() {
-                    self.parts[self.index].setStyle('display', 'block');
-                    self.parts[self.index].fade('in');
-                });
-            break;
-            case 'none':
-                self.parts[self.current].setStyle('display', 'none');
-                self.parts[self.index].setStyle('display', 'block');
-            break;
-        }
+			case 'slide':
+				new Fx.Slide(self.parts[self.current]).slideOut().chain(function(){
+					self.parts[self.index].slide('hide').slide('in');
+				});
+			break;
+			case 'fade':
+				new Fx.Tween(self.parts[self.current]).start('opacity', 0).chain(function(){
+					this.start('display', 'none')
+				}).chain(function() {
+					self.parts[self.index].setStyle('display', 'block');
+					self.parts[self.index].fade('in');
+				});
+			break;
+			case 'none':
+				self.parts[self.current].setStyle('display', 'none');
+				self.parts[self.index].setStyle('display', 'block');
+			break;
+		}
 	},
 	
 	_prepareEngine: function() {
@@ -152,6 +143,15 @@ var MooNav = new Class({
 		// Récupération des onglets et des parties correspondantes
 		self.tabs	=  $(self.options.tabsId).getElements('li');
 		self.parts	=  $$(self.options.partsClass);
+
+		// Fonction qui va cacher les différentes parties
+		self._hideParts();
+
+		// Fonction qui va ajouter les événements "click" aux onglets
+		self._addClickEvents();
+
+		// Fonction qui va afficher l'onglet actif courant
+		self._activeTab();
 	},
 	
 	addTab: function(li_content, div_content) {
@@ -167,16 +167,34 @@ var MooNav = new Class({
 		});
 		new_part.inject(self.parts.getLast(), 'after');
 		
-		// Fonction qui charge les tableaux d'onglets et parties
+		// Fonction qui prépare le système d'onglets
 		self._prepareEngine();
+	},
 
-		// Fonction qui va cacher les différentes parties
-		self._hideParts();
-
-		// Fonction qui va ajouter les événements "click" aux onglets
-		self._addClickEvents();
-
-		// Fonction qui va afficher l'onglet actif courant
-        self._activeTab();
+	removeTab: function(index_or_label) {
+		var self = this;
+		var index;
+		
+		// Si on a passé le label de l'onglet
+		if (isNaN(index_or_label))
+		{
+			self.tabs.each(function(el) {
+				if (el.get('html') == index_or_label)
+				{
+					index = self.tabs.indexOf(el);
+				}
+			});
+		}
+		// Si on a passé l'id de l'onglet
+		else
+		{
+			index = index_or_label;
+		}
+		
+		self.parts[index].destroy();
+		self.tabs[index].destroy();
+		
+		// Fonction qui prépare le système d'onglets
+		self._prepareEngine();
 	}
 });

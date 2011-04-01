@@ -5,34 +5,34 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 	<title>MooTab example</title>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script type="text/javascript" src="./mootools-core.js"></script>
-    <script type="text/javascript" src="./mootools-more.js"></script>
+	<link rel="stylesheet" type="text/css" href="./style.css" />
+	<script type="text/javascript" src="./mootools-core.js"></script>
+	<script type="text/javascript" src="./mootools-more.js"></script>
 	<script type="text/javascript" src="../Source/MooNav.js"></script>
 
-    <script type="text/javascript">
-    var myNav;
+	<script type="text/javascript">
+	var myNav;
 
 	window.addEvent('domready', function() {
-        // Basic, without transition effect and the default class
-        myNav = new MooNav();
+		// Basic, without transition effect and the default class
+		myNav = new MooNav();
 
-        // Custom with slide effect and redefinition of tabs, parts and active class
-        new MooNav({
-            tabsId:			'slide_tabs',
-            partsClass:		'.slide_part',
-            transition:		'slide',
-            activeClass:	'active_bis'
-        });
+		// Custom with slide effect and redefinition of tabs, parts and active class
+		new MooNav({
+			tabsId:			'slide_tabs',
+			partsClass:		'.slide_part',
+			transition:		'slide',
+			activeClass:	'active_bis'
+		});
 
-        // Custom with fade effect, redefinition of tabs and parts class and custom first active tab
-        new MooNav({
-            tabsId:		'fade_tabs',
-            partsClass:	'.fade_part',
-            transition:	'fade',
-            current:	2
-        });
-    });
+		// Custom with fade effect, redefinition of tabs and parts class and custom first active tab
+		new MooNav({
+			tabsId:		'fade_tabs',
+			partsClass:	'.fade_part',
+			transition:	'fade',
+			current:	2
+		});
+	});
 
 	var x = 0;
 	function addTab()
@@ -40,141 +40,149 @@
 		myNav.addTab('New tab ' + x, 'Content ' + x);
 		x++;
 	}
-    </script>
+
+	function removeTab()
+	{
+		var index_or_label = prompt("Which tab would you delete? (Type is label or index)");
+		
+		myNav.removeTab(index_or_label);
+	}
+	</script>
 </head>
 <body>
 	<p>
 		<input type="button" value="Add tab" onclick="addTab();" />
+		<input type="button" value="Remove tab" onclick="removeTab();" />
 	</p>
-    <h1>No transition</h1>
-    <ul id="tabs">
-        <li>Part one</li>
-        <li>Part two</li>
-        <li>Part three</li>
-    </ul>
+	<h1>No transition</h1>
+	<ul id="tabs">
+		<li>Part one</li>
+		<li>Part two</li>
+		<li>Part three</li>
+	</ul>
 
-    <div class="part">
-        <h2>
-            Part One
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
-        </p>
-        <p>
-            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
-        </p>
-    </div>
+	<div class="part">
+		<h2>
+			Part One
+		</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+		</p>
+		<p>
+			Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+		</p>
+	</div>
 
-    <div class="part">
-        <h2>
-            Part Two
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
-        </p>
-        <p>
-            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
-        </p>
-    </div>
+	<div class="part">
+		<h2>
+			Part Two
+		</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+		</p>
+		<p>
+			Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+		</p>
+	</div>
 
-    <div class="part">
-        <h2>
-            Part Three
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
-        </p>
-        <p>
-            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
-        </p>
-    </div>
-
-
-    <h1>Slide transition</h1>
-    <ul id="slide_tabs">
-        <li>Part one Slide</li>
-        <li>Part two Slide</li>
-        <li>Part three Slide</li>
-    </ul>
-
-    <div class="slide_part">
-        <h2>
-            Part One
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
-        </p>
-        <p>
-            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
-        </p>
-    </div>
-
-    <div class="slide_part">
-        <h2>
-            Part Two
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
-        </p>
-        <p>
-            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
-        </p>
-    </div>
-
-    <div class="slide_part">
-        <h2>
-            Part Three
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
-        </p>
-        <p>
-            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
-        </p>
-    </div>
+	<div class="part">
+		<h2>
+			Part Three
+		</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+		</p>
+		<p>
+			Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+		</p>
+	</div>
 
 
-    <h1>Fade transition</h1>
-    <ul id="fade_tabs">
-        <li>Part one Fade</li>
-        <li>Part two Fade</li>
-        <li>Part three Fade</li>
-    </ul>
+	<h1>Slide transition</h1>
+	<ul id="slide_tabs">
+		<li>Part one Slide</li>
+		<li>Part two Slide</li>
+		<li>Part three Slide</li>
+	</ul>
 
-    <div class="fade_part">
-        <h2>
-            Part One
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
-        </p>
-        <p>
-            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
-        </p>
-    </div>
+	<div class="slide_part">
+		<h2>
+			Part One
+		</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+		</p>
+		<p>
+			Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+		</p>
+	</div>
 
-    <div class="fade_part">
-        <h2>
-            Part Two
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
-        </p>
-        <p>
-            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
-        </p>
-    </div>
+	<div class="slide_part">
+		<h2>
+			Part Two
+		</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+		</p>
+		<p>
+			Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+		</p>
+	</div>
 
-    <div class="fade_part">
-        <h2>
-            Part Three
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
-        </p>
-        <p>
-            Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
-        </p>
-    </div>
+	<div class="slide_part">
+		<h2>
+			Part Three
+		</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+		</p>
+		<p>
+			Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+		</p>
+	</div>
+
+
+	<h1>Fade transition</h1>
+	<ul id="fade_tabs">
+		<li>Part one Fade</li>
+		<li>Part two Fade</li>
+		<li>Part three Fade</li>
+	</ul>
+
+	<div class="fade_part">
+		<h2>
+			Part One
+		</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+		</p>
+		<p>
+			Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+		</p>
+	</div>
+
+	<div class="fade_part">
+		<h2>
+			Part Two
+		</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+		</p>
+		<p>
+			Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+		</p>
+	</div>
+	
+	<div class="fade_part">
+		<h2>
+			Part Three
+		</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet venenatis erat sed volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu purus leo, id tincidunt ligula. Praesent blandit volutpat magna, ut egestas nibh malesuada quis. Donec ullamcorper dictum elit nec tempor. Vivamus quis ante ante, non fermentum ligula. Suspendisse porttitor egestas lobortis. Etiam sapien turpis, dignissim nec aliquam quis, lacinia id nunc. Suspendisse diam magna, imperdiet at mollis ut, euismod sit amet nulla. Fusce vitae arcu nisl. Duis elementum venenatis lacus, non condimentum sem consectetur ornare. Aliquam erat volutpat. Fusce scelerisque orci ac sapien congue vehicula vulputate leo elementum. Donec aliquam risus sagittis urna consequat nec porttitor risus gravida. Praesent erat justo, ornare quis ultrices nec, venenatis a urna. Suspendisse a cursus turpis. Pellentesque quis sem et turpis fringilla laoreet id eget dui. Ut purus sem, varius sed elementum vitae, placerat at purus. Nam nisl eros, volutpat sit amet tincidunt in, ultricies in enim.
+		</p>
+		<p>
+			Maecenas consequat, magna at adipiscing luctus, dui est faucibus ipsum, nec accumsan elit metus sit amet lorem. Morbi egestas porta eros, id gravida erat posuere ac. Donec ligula ligula, molestie eget placerat eget, lacinia et lectus. Nulla eleifend est id ante facilisis tempor. Praesent convallis ante vel risus congue varius. Sed mattis porttitor quam non ultricies. Nam congue, dolor a ornare vehicula, leo nisl sodales lacus, a vestibulum quam lacus eget elit. Cras gravida lectus sagittis est faucibus mollis. Proin et velit justo. Nam dui ante, dapibus sit amet sollicitudin quis, posuere vitae ante. Nam in purus non turpis eleifend viverra sed ut elit. Maecenas convallis scelerisque arcu, eget vestibulum nulla tincidunt vel. Quisque metus nisi, fermentum eu eleifend eget, rutrum varius mauris. Cras vitae tortor velit, quis mollis massa. Etiam consequat aliquet malesuada. Quisque quis dui justo. Ut vitae libero a turpis iaculis porta. In facilisis lacinia urna sit amet blandit.
+		</p>
+	</div>
 </body>
 </html>
