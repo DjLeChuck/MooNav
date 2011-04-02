@@ -24,7 +24,7 @@ var MooNav = new Class({
 		activeClass:	'active',
 		current:		0,
 		transition:		'none',
-		speed:			'normal'
+		speed:			'long'
 	},
 	
 	initialize: function(options) {
@@ -143,20 +143,7 @@ var MooNav = new Class({
 				
 				myFx.start(0).start(function() {
 					self.parts[self.index].setStyle('display', 'block');
-					//self.parts[self.index].fade('in');
-
-					self.parts[self.index].set('tween', {
-						duration: self.options.speed
-					});
-					self.parts[self.index].tween('opacity', 0, 100);
-					/*var fadeFx = new Fx.Tween(self.parts[self.index], {
-						duration: self.options.speed,
-						link: 'chain',
-						property: 'opacity'
-					});
-					
-					fadeFx.set('opacity', 0);
-					fadeFx.start(0, 100);*/
+					self.parts[self.index].fade('in');
 				});
 			break;
 			case 'none':
