@@ -5,14 +5,14 @@ description: A tab system for MooTools.
 license: MIT-style
 
 authors:
-	- DE BONA Vivien (DjLeChuck)
+    - DE BONA Vivien (DjLeChuck)
 
 requires:
-	- core/1.3.1: '*'
-	- more/Fx.Slide
+    - core/1.3.1: '*'
+    - more/Fx.Slide
 
 provides:
-	- MooNav
+    - MooNav
 ...
 */
 
